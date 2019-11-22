@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Lightboardpi!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+    </head>
+    <body>
+        <h1 class="title">Lightboardpi</h1>
+        <div class="text">The Lightboardpi is built off of python code that converts usb serial data to DMX output.</div>
+        <div class ="text">With this technology, an entire show can be run in the theater with just a raspberry pi device. You can even run it off of your phone!</div>
+        <br>
+        <label for="file">Submit a lighting plot:</label>
+        <input type="file" id="fileinput">
+        <div id="ReadResult"></div>
+        <script type="text/javascript">
+            function readSingleFile(evt) {
+                //Retrieve the first (and only!) File from the FileList object
+                var f = evt.target.files[0];
+
+                if (f) {
+                    var r = new FileReader();
+                    r.onload = function (e) {
+                        var contents = e.target.result;
+                        document.getElementById("ReadResult").innerHTML = contents;
+                    }
+                    r.readAsText(f);
+                } else {
+                    alert("Failed to load file");
+                }
+            }
+
+            document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+
+        </script>
+        <br>
+        <br>
+        <button id="bump">Bump</button>
+        <br>
+        <br>
+        <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        </div>
+        <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
+    </script>
+    </body>
+</html>
