@@ -4,16 +4,24 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-@app.route('/upload/', methods=['GET', 'POST'])
-def upload():
-   if request.method == 'POST':
-      file = request.files['file']
-      if file:
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        a = 'file uploaded'
+@app.route('/read_file', methods=['GET'])
+def read_uploaded_file():
+    filename = secure_filename(request.args.get('filename'))
+    try:
+        if filename and allowed_filename(filename):
+            with open(os.path.join(app.config['UPLOAD_FOLDER'], filename)) as f:
+                for x in f: #until end of file
+                    light = f.readline()
+                    time = f.readline()
 
-return render_template('upload.html', data = a)
+                    makecue(light, time)# Add to cue list?
+                    makecue(light, time)
+
+                f.close()
+
+    except IOError:
+        pass
+    return "Unable to read file"
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
