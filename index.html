@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Lightboardpi!</title>
@@ -12,13 +7,13 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="mystyle.css">
     </head>
     <body>
-        <h1 class="title">Lightboardpi</h1>
+        <h1 class="title">Lightboardpi for CS121<img src="Raspi-PGB001.jpg" alt="raspilogo" class="rasp" width="100" height="90"></h1>
         <div class="text">The Lightboardpi is built off of python code that converts usb serial data to DMX output.</div>
         <div class ="text">With this technology, an entire show can be run in the theater with just a raspberry pi device. You can even run it off of your phone!</div>
         <br>
         <label for="file">Submit a lighting plot:</label>
         <input type="file" id="fileinput">
-        <div id="ReadResult"></div>
+        <div id="ReadResult" class="label"></div>
         <script type="text/javascript">
             function readSingleFile(evt) {
                 //Retrieve the first (and only!) File from the FileList object
@@ -40,8 +35,11 @@ and open the template in the editor.
 
         </script>
         <br>
+        <h2 class="">Demo Light: Fresnel #1</h2>
+        <img src="fresnel.jpg" alt="fresnel" class="fresnel" width="150" height="130">
         <br>
-        <button id="bump">Bump</button>
+        <button class="bump">Bump</button>
+        <button class="strobe">Strobe</button>
         <br>
         <br>
         <div class="slidecontainer">

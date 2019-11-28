@@ -3,22 +3,44 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : Nov 21, 2019, 5:01:37 PM
     Author     : donov
 */
 
 body {
-  background-color: lightblue;
+  //background-color: lightblue;
+  background-image: url("theatre.jpg");
 }
 
 h1 {
-  //color: navy;
+  color: white;
   font-family: Verdana, Geneva, sans-serif;
+  font-size: 350%;
   //margin-left: 20px;
 }
 
 div
 {
+    color: white;
     font-family: Verdana, Geneva, sans-serif;
+}
+
+label
+{
+    color: white;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 150%;
+}
+
+h2
+{
+    color: white;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 150%;
+}
+
+button {
+  background-color: #4CAF50;
+  font-size: 24px;
 }
